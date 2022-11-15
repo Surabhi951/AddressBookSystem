@@ -4,10 +4,10 @@ import java.util.Scanner;
 
 public class AddressBook {
 
-    Scanner sc=new Scanner(System.in);
+    Scanner sc = new Scanner(System.in);
 
-    ContactPerson createContact(){
-        ContactPerson person=new ContactPerson();
+    ContactPerson createContact() {
+        ContactPerson person = new ContactPerson();
         System.out.print("Enter First Name: ");
         person.setFirstName(sc.next());
         System.out.print("Enter Last Name: ");
