@@ -4,10 +4,10 @@ public class ContactPerson {
 
     private String firstName, lastName, address, city, state, email;
     private int zipCode;
-    private long phoneNumber;
+    private String phoneNumber;
 
 
-    public ContactPerson(String firstName, String lastName, String address, String city, String state, String email, int zipCode, long phoneNumber) {
+    public ContactPerson(String firstName, String lastName, String address, String city, String state, String email, int zipCode, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -43,7 +43,7 @@ public class ContactPerson {
         return zipCode;
     }
 
-    public long getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
