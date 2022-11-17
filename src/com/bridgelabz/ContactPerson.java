@@ -6,7 +6,6 @@ public class ContactPerson {
     private int zipCode;
     private String phoneNumber;
 
-
     public ContactPerson(String firstName, String lastName, String address, String city, String state, String email, int zipCode, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
