@@ -1,7 +1,5 @@
 package com.bridgelabz;
 
-import java.util.Scanner;
-
 public class AddressBook {
 
     Scanner sc = new Scanner(System.in);
@@ -28,7 +26,7 @@ public class AddressBook {
         return person;
     }
 
-    public void addContact(){
+    public void addContact() {
         ContactPerson contactPerson = createContact();
         System.out.println(contactPerson);
         System.out.println("Contact added successfully");
