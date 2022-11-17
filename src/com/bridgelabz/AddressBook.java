@@ -6,7 +6,7 @@ public class AddressBook {
 
     Scanner sc = new Scanner(System.in);
 
-    ContactPerson createContact() {
+    public ContactPerson createContact() {
         ContactPerson person = new ContactPerson();
         System.out.print("Enter First Name: ");
         person.setFirstName(sc.next());
@@ -18,13 +18,19 @@ public class AddressBook {
         person.setCity(sc.next());
         System.out.print("Enter State: ");
         person.setState(sc.next());
+        System.out.print("Enter email: ");
+        person.setEmail(sc.next());
         System.out.print("Enter ZipCode: ");
         person.setZipCode(sc.nextInt());
         System.out.print("Enter Phone Number: ");
         person.setPhoneNumber(sc.nextLong());
-        System.out.print("Enter email: ");
-        person.setEmail(sc.next());
         System.out.println("created new contact");
         return person;
+    }
+
+    public void addContact(){
+        ContactPerson contactPerson = createContact();
+        System.out.println(contactPerson);
+        System.out.println("Contact added successfully");
     }
 }

@@ -2,16 +2,45 @@ package com.bridgelabz;
 
 public class ContactPerson {
 
-    private String firstName;
-    private String lastName;
-    private String address;
-    private String city;
-    private String state;
+    private String firstName, lastName, address, city, state, email;
     private int zipCode;
     private long phoneNumber;
-    private String email;
+
 
     public ContactPerson() {
+
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public int getZipCode() {
+        return zipCode;
+    }
+
+    public long getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public void setFirstName(String firstName) {
@@ -54,9 +83,9 @@ public class ContactPerson {
                 ", address='" + address + '\'' +
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
+                ", email='" + email + '\'' +
                 ", zipCode=" + zipCode +
                 ", phoneNumber=" + phoneNumber +
-                ", email='" + email + '\'' +
                 '}';
     }
 }
