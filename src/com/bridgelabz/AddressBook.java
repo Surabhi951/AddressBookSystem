@@ -71,4 +71,32 @@ public class AddressBook {
             System.out.println("Oops...Contact not found");
         }
     }
+
+    void deleteContact(){
+        boolean isContactFound = false;
+        System.out.println("enter name to delete contact");
+        String name = sc.next();
+        for (ContactPerson contactPerson : addressBook1){
+            if (contactPerson.getFirstName().equalsIgnoreCase(name)) {
+                System.out.println("contact found:");
+                isContactFound = true;
+                System.out.println(contactPerson);
+                System.out.println("confirm to delete (y/n)");
+                if (sc.next().equalsIgnoreCase("y")) {
+                    addressBook1.remove(contactPerson);
+                    System.out.println("contact deleted");
+                }
+                break;
+            }
+        }
+        if (!isContactFound) {
+            System.out.println("Opps... contact not found");
+        }
+    }
+
+    void display(){
+        for (ContactPerson person : addressBook1) {
+            System.out.println(person);
+        }
+    }
 }
