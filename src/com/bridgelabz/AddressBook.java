@@ -55,12 +55,12 @@ public class AddressBook {
                 contactPerson.setCity(sc.next());
                 System.out.print("Enter State :");
                 contactPerson.setState(sc.next());
+                System.out.print("Enter email :");
+                contactPerson.setEmail(sc.next());
                 System.out.print("Enter ZipCode :");
                 contactPerson.setZipCode(sc.nextInt());
                 System.out.print("Enter Phone Number :");
                 contactPerson.setPhoneNumber(sc.nextLong());
-                System.out.print("Enter email :");
-                contactPerson.setEmail(sc.next());
                 System.out.println(contactPerson);
                 break;
             }
@@ -72,7 +72,7 @@ public class AddressBook {
         }
     }
 
-    void deleteContact(){
+    public void deleteContact(){
         boolean isContactFound = false;
         System.out.println("enter name to delete contact");
         String name = sc.next();
