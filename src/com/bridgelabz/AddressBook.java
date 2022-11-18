@@ -39,7 +39,6 @@ public class AddressBook {
 
     public void editContact() {
         boolean isContactFound = false;
-        System.out.println(addressBook1);
         System.out.println("Enter Name to edit Contact");
         String name = sc.next();
         for (ContactPerson contactPerson : addressBook1) {
@@ -55,12 +54,12 @@ public class AddressBook {
                 contactPerson.setCity(sc.next());
                 System.out.print("Enter State :");
                 contactPerson.setState(sc.next());
+                System.out.print("Enter email :");
+                contactPerson.setEmail(sc.next());
                 System.out.print("Enter ZipCode :");
                 contactPerson.setZipCode(sc.nextInt());
                 System.out.print("Enter Phone Number :");
                 contactPerson.setPhoneNumber(sc.nextLong());
-                System.out.print("Enter email :");
-                contactPerson.setEmail(sc.next());
                 System.out.println(contactPerson);
                 break;
             }
@@ -69,6 +68,12 @@ public class AddressBook {
             System.out.println("Contact Updated Successfully..");
         } else {
             System.out.println("Oops...Contact not found");
+        }
+    }
+
+    void display() {
+        for (ContactPerson person : addressBook1) {
+            System.out.println(person);
         }
     }
 }
