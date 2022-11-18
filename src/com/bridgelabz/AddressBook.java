@@ -30,7 +30,7 @@ public class AddressBook {
         return person;
     }
 
-    public void addContact(){
+    public void addContact() {
         ContactPerson contactPerson = createContact();
         addressBook1.add(contactPerson);
         System.out.println(contactPerson);
@@ -71,7 +71,7 @@ public class AddressBook {
         }
     }
 
-    void display() {
+    void display(){
         for (ContactPerson person : addressBook1) {
             System.out.println(person);
         }

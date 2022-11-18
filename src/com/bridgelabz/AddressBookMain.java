@@ -11,6 +11,7 @@ public class AddressBookMain {
 
         boolean flag1 = true;
         while (flag1){
+
             System.out.println("******************\nSelect Option :");
             System.out.println("1.Add Contact\n2.Edit Contact\n3.Display\n4.Exit");
             int option = sc.nextInt();
