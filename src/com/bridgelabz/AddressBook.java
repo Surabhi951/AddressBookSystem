@@ -30,7 +30,7 @@ public class AddressBook {
         return person;
     }
 
-    public void addContact(){
+    public void addContact() {
         ContactPerson contactPerson = createContact();
         addressBook1.add(contactPerson);
         System.out.println(contactPerson);
@@ -39,7 +39,6 @@ public class AddressBook {
 
     public void editContact() {
         boolean isContactFound = false;
-        System.out.println(addressBook1);
         System.out.println("Enter Name to edit Contact");
         String name = sc.next();
         for (ContactPerson contactPerson : addressBook1) {
