@@ -6,7 +6,6 @@ public class ContactPerson {
     private int zipCode;
     private long phoneNumber;
 
-
     public ContactPerson() {
 
     }
@@ -30,6 +29,10 @@ public class ContactPerson {
     public String getState() {
         return state;
     }
+    
+    public String getEmail() {
+        return email;
+    }
 
     public int getZipCode() {
         return zipCode;
@@ -37,10 +40,6 @@ public class ContactPerson {
 
     public long getPhoneNumber() {
         return phoneNumber;
-    }
-
-    public String getEmail() {
-        return email;
     }
 
     public void setFirstName(String firstName) {
@@ -62,6 +61,10 @@ public class ContactPerson {
     public void setState(String state) {
         this.state = state;
     }
+    
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public void setZipCode(int zipCode) {
         this.zipCode = zipCode;
@@ -70,11 +73,7 @@ public class ContactPerson {
     public void setPhoneNumber(long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
+    
     @Override
     public String toString() {
         return "ContactPerson{" +
