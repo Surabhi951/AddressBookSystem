@@ -93,9 +93,15 @@ public class AddressBook {
         }
     }
 
-    void display(){
-        for (ContactPerson person : addressBook1) {
-            System.out.println(person);
+    void displayContact(){
+        if (addressBook1.isEmpty()) {
+            System.out.println("No contacts to display");
+        } else {
+            for (ContactPerson contactPerson : addressBook1) {
+                System.out.println(contactPerson);
+            }
+
         }
     }
 }
+

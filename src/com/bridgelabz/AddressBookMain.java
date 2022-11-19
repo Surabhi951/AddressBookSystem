@@ -22,7 +22,10 @@ public class AddressBookMain {
                     addressBook.editContact();
                     break;
                 case 3:
-                    addressBook.display();
+                    addressBook.deleteContact();
+                    break;
+                case 4:
+                    addressBook.displayContact();
                     break;
                 case 4:
                     flag1 = false;
