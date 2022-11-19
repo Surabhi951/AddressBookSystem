@@ -25,7 +25,7 @@ public class AddressBookMain {
                     addressBook.deleteContact();
                     break;
                 case 4:
-                    addressBook.display();
+                    addressBook.displayContact();
                     break;
                 case 5:
                     flag1 = false;

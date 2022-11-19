@@ -39,7 +39,6 @@ public class AddressBook {
 
     public void editContact() {
         boolean isContactFound = false;
-        System.out.println(addressBook1);
         System.out.println("Enter Name to edit Contact");
         String name = sc.next();
         for (ContactPerson contactPerson : addressBook1) {
@@ -94,9 +93,15 @@ public class AddressBook {
         }
     }
 
-    void display(){
-        for (ContactPerson person : addressBook1) {
-            System.out.println(person);
+    void displayContact(){
+        if (addressBook1.isEmpty()) {
+            System.out.println("No contacts to display");
+        } else {
+            for (ContactPerson contactPerson : addressBook1) {
+                System.out.println(contactPerson);
+            }
+
         }
     }
 }
+
