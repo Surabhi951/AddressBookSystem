@@ -12,7 +12,7 @@ public class AddressBookMain {
         boolean flag1 = true;
         while (flag1){
             System.out.println("*******************\nSelect Option : ");
-            System.out.println("1.Add Contact\n2.Edit Contact\n3.Delete Contact\n4.Display\n5.Exit");
+            System.out.println("1.Add Contact\n2.Edit Contact\n3.Delete Contact\n4.Display\n5.Add Multiple Contacts\n6.Exit");
             int option = sc.nextInt();
             switch (option) {
                 case 1:
@@ -28,6 +28,9 @@ public class AddressBookMain {
                     addressBook.displayContact();
                     break;
                 case 5:
+                    addressBook.addMultipleContacts();
+                    break;
+                case 6:
                     flag1 = false;
                     break;
                 default:
