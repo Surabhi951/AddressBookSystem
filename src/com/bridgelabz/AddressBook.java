@@ -93,6 +93,14 @@ public class AddressBook {
         }
     }
 
+    public void addMultipleContacts() {
+        System.out.println("Enter multiple contacts: ");
+        ContactPerson contactPerson = createContact();
+        addressBook1.add(contactPerson);
+        System.out.println(contactPerson);
+        System.out.println("Contact added successfully");
+    }
+
     void displayContact(){
         if (addressBook1.isEmpty()) {
             System.out.println("No contacts to display");
