@@ -1,11 +1,13 @@
 package com.bridgelabz;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class AddressBook {
 
     Scanner sc = new Scanner(System.in);
+
     // Create an object of arraylist
     ArrayList<ContactPerson> addressBook1 = new ArrayList<>();
 
@@ -89,14 +91,14 @@ public class AddressBook {
         boolean isContactFound = false;
         System.out.println("enter name to delete contact");
         String name = sc.next();
-        for (ContactPerson contactPerson : addressBook1){
+        for (ContactPerson contactPerson : currentAddressBook){
             if (contactPerson.getFirstName().equalsIgnoreCase(name)) {
                 System.out.println("contact found:");
                 isContactFound = true;
                 System.out.println(contactPerson);
                 System.out.println("confirm to delete (y/n)");
                 if (sc.next().equalsIgnoreCase("y")) {
-                    addressBook1.remove(contactPerson);
+                    currentAddressBook.remove(contactPerson);
                     System.out.println("contact deleted");
                 }
                 break;
@@ -106,6 +108,7 @@ public class AddressBook {
             System.out.println("Opps... contact not found");
         }
     }
+
 
     /*
     Display contact
@@ -117,7 +120,6 @@ public class AddressBook {
             for (ContactPerson contactPerson : addressBook1) {
                 System.out.println(contactPerson);
             }
-
         }
     }
 }
