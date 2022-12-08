@@ -7,13 +7,17 @@ import java.util.Scanner;
 public class AddressBook {
 
     Scanner sc = new Scanner(System.in);
-    static HashMap<String,ArrayList> addressBookList = new HashMap<>();
-    static ArrayList <ContactPerson> currentAddressBook;
-    static String currentAddressBookName;
+
+    // Create an object of arraylist
+    ArrayList<ContactPerson> addressBook1 = new ArrayList<>();
+
+    /*
+    create contacts
+     */
     public ContactPerson createContact() {
-        ContactPerson person = new ContactPerson();
+        ContactPerson person = new ContactPerson();//creating object of ContactPerson class
         System.out.print("Enter First Name: ");
-        person.setFirstName(sc.next());
+        person.setFirstName(sc.next());// using object reference calling setFirstName method to set first name
         System.out.print("Enter Last Name: ");
         person.setLastName(sc.next());
         System.out.print("Enter Address: ");
@@ -32,18 +36,23 @@ public class AddressBook {
         return person;
     }
 
+    // Add new contacts to address book
     public void addContact() {
-        ContactPerson contactPerson = createContact();
-        currentAddressBook.add(contactPerson);
-        System.out.println(contactPerson);
+        ContactPerson contactPerson = createContact();// call createContact method and store in contactPerson
+        addressBook1.add(contactPerson);// using arraylist object reference call add method
+        System.out.println(contactPerson);// print contact details of person
         System.out.println("Contact added successfully");
     }
 
+    /*
+    Edit contact
+    if contact found then edit otherwise no contact found message will be display
+     */
     public void editContact() {
         boolean isContactFound = false;
         System.out.println("Enter Name to edit Contact");
         String name = sc.next();
-        for (ContactPerson contactPerson : currentAddressBook) {
+        for (ContactPerson contactPerson : addressBook1) { //iterate over the arraylist
             if (name.equalsIgnoreCase(contactPerson.getFirstName())) {
                 isContactFound = true;
                 System.out.print("Enter First Name :");
@@ -73,6 +82,11 @@ public class AddressBook {
         }
     }
 
+    /*
+    Delete contact
+    if contact found then delete that contact
+     if no contact found then message will be display as oops....contact not found
+     */
     public void deleteContact(){
         boolean isContactFound = false;
         System.out.println("enter name to delete contact");
@@ -95,43 +109,17 @@ public class AddressBook {
         }
     }
 
-    public void addMultipleContacts() {
-        System.out.println("Enter multiple contacts: ");
-        ContactPerson contactPerson = createContact();
-        currentAddressBook.add(contactPerson);
-        System.out.println(contactPerson);
-        System.out.println("Contact added successfully");
-    }
 
-    void addNewAddressBook(){
-        System.out.println("Enter name for AddressBook: ");
-        String addressBookName = sc.next();
-        ArrayList <ContactPerson> addressBook = new ArrayList();
-        addressBookList.put(addressBookName,addressBook);
-        System.out.println("new AddressBook created");
-        currentAddressBook = addressBookList.get(addressBookName);
-        currentAddressBookName = addressBookName;
-    }
-
-    void selectAddressBook(){
-        System.out.println(addressBookList.keySet());
-        System.out.println("Enter name of address book:");
-        String addressBookName = sc.next();
-
-        for (String key : addressBookList.keySet()) {
-            if (key.equalsIgnoreCase(addressBookName)){
-                currentAddressBook = addressBookList.get(key);
-                currentAddressBookName = key;
+    /*
+    Display contact
+    */
+    void displayContact(){
+        if (addressBook1.isEmpty()) {
+            System.out.println("No contacts to display");
+        } else {
+            for (ContactPerson contactPerson : addressBook1) {
+                System.out.println(contactPerson);
             }
-        }
-        System.out.println("current AddressBook is: "+currentAddressBookName);
-    }
-
-    void displayContact(ArrayList addressBook){
-        System.out.println("Contacts: ");
-        for (Object p : addressBook) {
-            ContactPerson person = (ContactPerson) p;
-            System.out.println(person);
         }
     }
 }
