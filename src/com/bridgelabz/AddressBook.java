@@ -7,13 +7,17 @@ import java.util.Scanner;
 public class AddressBook {
 
     Scanner sc = new Scanner(System.in);
-    static HashMap<String,ArrayList> addressBookList = new HashMap<>();
-    static ArrayList <ContactPerson> currentAddressBook;
-    static String currentAddressBookName;
+    static HashMap<String,ArrayList> addressBookList = new HashMap<>();// create an object of hashmap
+    static ArrayList <ContactPerson> currentAddressBook;// declare variable
+    static String currentAddressBookName;//declare variable
+
+    /*
+    create contacts
+     */
     public ContactPerson createContact() {
-        ContactPerson person = new ContactPerson();
+        ContactPerson person = new ContactPerson();//creating object of ContactPerson class
         System.out.print("Enter First Name: ");
-        person.setFirstName(sc.next());
+        person.setFirstName(sc.next());//using object reference calling setFirstName method to set first name
         System.out.print("Enter Last Name: ");
         person.setLastName(sc.next());
         System.out.print("Enter Address: ");
@@ -32,13 +36,18 @@ public class AddressBook {
         return person;
     }
 
+    // Add new contacts to address book
     public void addContact() {
-        ContactPerson contactPerson = createContact();
-        currentAddressBook.add(contactPerson);
-        System.out.println(contactPerson);
+        ContactPerson contactPerson = createContact();//call createContact method and store in contactPerson
+        currentAddressBook.add(contactPerson);//using hashmap object reference call add method
+        System.out.println(contactPerson);//print contact details of person
         System.out.println("Contact added successfully");
     }
 
+    /*
+    Edit existing contact using person`s name
+    if contact found then edit otherwise no contact found message will be display
+     */
     public void editContact() {
         boolean isContactFound = false;
         System.out.println("Enter Name to edit Contact");
@@ -73,6 +82,11 @@ public class AddressBook {
         }
     }
 
+    /*
+    Delete contact using person`s name
+    if contact found then delete that contact
+     if no contact found then message will be display as oops....contact not found
+     */
     public void deleteContact(){
         boolean isContactFound = false;
         System.out.println("enter name to delete contact");
@@ -95,24 +109,25 @@ public class AddressBook {
         }
     }
 
-    public void addMultipleContacts() {
-        System.out.println("Enter multiple contacts: ");
-        ContactPerson contactPerson = createContact();
-        currentAddressBook.add(contactPerson);
-        System.out.println(contactPerson);
-        System.out.println("Contact added successfully");
-    }
-
+    /*
+    add multiple address book
+    each address book has unique name
+     */
     void addNewAddressBook(){
         System.out.println("Enter name for AddressBook: ");
         String addressBookName = sc.next();
-        ArrayList <ContactPerson> addressBook = new ArrayList();
+        ArrayList <ContactPerson> addressBook = new ArrayList();//creating object of arraylist
+        //using object reference of hashmap calling put method and passing key as addressBookName and value as addressBook
         addressBookList.put(addressBookName,addressBook);
         System.out.println("new AddressBook created");
-        currentAddressBook = addressBookList.get(addressBookName);
-        currentAddressBookName = addressBookName;
+        currentAddressBook = addressBookList.get(addressBookName);//retrieve addressBookName using get method
+        currentAddressBookName = addressBookName;//addressBookName store in current addressBookName
     }
 
+    /*
+    select address book
+    if we want to add more contact in existing address book then select that address book
+     */
     void selectAddressBook(){
         System.out.println(addressBookList.keySet());
         System.out.println("Enter name of address book:");
@@ -127,6 +142,9 @@ public class AddressBook {
         System.out.println("current AddressBook is: "+currentAddressBookName);
     }
 
+    /*
+    Display contact
+    */
     void displayContact(ArrayList addressBook){
         System.out.println("Contacts: ");
         for (Object p : addressBook) {
