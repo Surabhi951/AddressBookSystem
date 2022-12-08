@@ -6,12 +6,16 @@ import java.util.Scanner;
 public class AddressBook {
 
     Scanner sc = new Scanner(System.in);
+    // Create an object of arraylist
     ArrayList<ContactPerson> addressBook1 = new ArrayList<>();
 
+    /*
+    create contacts
+     */
     public ContactPerson createContact() {
-        ContactPerson person = new ContactPerson();
+        ContactPerson person = new ContactPerson();//creating object of ContactPerson class
         System.out.print("Enter First Name: ");
-        person.setFirstName(sc.next());
+        person.setFirstName(sc.next());// using object reference calling setFirstName method to set first name
         System.out.print("Enter Last Name: ");
         person.setLastName(sc.next());
         System.out.print("Enter Address: ");
@@ -30,18 +34,23 @@ public class AddressBook {
         return person;
     }
 
+    // Add new contacts to address book
     public void addContact() {
-        ContactPerson contactPerson = createContact();
-        addressBook1.add(contactPerson);
-        System.out.println(contactPerson);
+        ContactPerson contactPerson = createContact();// call createContact method and store in contactPerson
+        addressBook1.add(contactPerson);// using arraylist object reference call add method
+        System.out.println(contactPerson);// print contact details of person
         System.out.println("Contact added successfully");
     }
 
+    /*
+    Edit contact
+    if contact found then edit otherwise no contact found message will be display
+     */
     public void editContact() {
         boolean isContactFound = false;
         System.out.println("Enter Name to edit Contact");
         String name = sc.next();
-        for (ContactPerson contactPerson : addressBook1) {
+        for (ContactPerson contactPerson : addressBook1) { //iterate over the arraylist
             if (name.equalsIgnoreCase(contactPerson.getFirstName())) {
                 isContactFound = true;
                 System.out.print("Enter First Name :");
@@ -71,6 +80,11 @@ public class AddressBook {
         }
     }
 
+    /*
+    Delete contact
+    if contact found then delete that contact
+     if no contact found then message will be display as oops....contact not found
+     */
     public void deleteContact(){
         boolean isContactFound = false;
         System.out.println("enter name to delete contact");
@@ -93,14 +107,9 @@ public class AddressBook {
         }
     }
 
-    public void addMultipleContacts() {
-        System.out.println("Enter multiple contacts: ");
-        ContactPerson contactPerson = createContact();
-        addressBook1.add(contactPerson);
-        System.out.println(contactPerson);
-        System.out.println("Contact added successfully");
-    }
-
+    /*
+    Display contact
+    */
     void displayContact(){
         if (addressBook1.isEmpty()) {
             System.out.println("No contacts to display");
