@@ -36,12 +36,24 @@ public class AddressBook {
         return person;
     }
 
-    // Add new contacts to address book
-    public void addContact() {
-        ContactPerson contactPerson = createContact();//call createContact method and store in contactPerson
-        currentAddressBook.add(contactPerson);//using hashmap object reference call add method
-        System.out.println(contactPerson);//print contact details of person
-        System.out.println("Contact added successfully");
+    /*
+    if duplicate contact found then display message as contact name already exists
+     Add new contacts to address book if there is no duplicate contact
+    */
+    void addContact(ContactPerson person){
+        boolean isDuplicate = checkDuplicateContact(person);
+        if (isDuplicate) {
+            System.out.println("Contact name already exists");
+        } else {
+            currentAddressBook.add(person);
+            System.out.println("contact added to AddressBook " + currentAddressBookName);
+            System.out.println(person);
+        }
+    }
+
+    //check duplicate contact using their name
+    boolean checkDuplicateContact(ContactPerson newPerson) {
+        return currentAddressBook.stream().anyMatch((person) -> person.getFirstName().equals(newPerson.getFirstName()));
     }
 
     /*

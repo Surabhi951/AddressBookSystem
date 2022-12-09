@@ -17,7 +17,8 @@ public class AddressBookMain {
             int option = sc.nextInt();
             switch (option) { //select option
                 case 1:
-                    addressBook.addContact();
+                    ContactPerson contactPerson = addressBook.createContact();
+                    addressBook.addContact(contactPerson);
                     break;
                 case 2:
                     addressBook.editContact();
