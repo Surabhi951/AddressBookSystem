@@ -11,6 +11,9 @@ public class AddressBook {
     static ArrayList<ContactPerson> currentAddressBook;// declare variable
     static String currentAddressBookName;//declare variable
 
+    static HashMap<String, ArrayList<ContactPerson>> cityContactList = new HashMap<>();
+    static HashMap<String, ArrayList<ContactPerson>> stateContactList = new HashMap<>();
+
     public ContactPerson createContact(){
         ContactPerson person = new ContactPerson();//creating object of ContactPerson class
         System.out.print("Enter First Name: ");
@@ -137,29 +140,18 @@ public class AddressBook {
     select address book
     if we want to add more contact in existing address book then select that address book
      */
-    void selectAddressBook(){
+    void selectAddressBook() {
         System.out.println(addressBookList.keySet());
         System.out.println("Enter name of address book:");
         String addressBookName = sc.next();
 
         for (String key : addressBookList.keySet()) {
-            if (key.equalsIgnoreCase(addressBookName)){
+            if (key.equalsIgnoreCase(addressBookName)) {
                 currentAddressBook = addressBookList.get(key);
                 currentAddressBookName = key;
             }
         }
-        System.out.println("current AddressBook is: "+currentAddressBookName);
-    }
-
-    /*
-    Display contact
-    */
-    void displayContact(ArrayList addressBook){
-        System.out.println("Contacts: ");
-        for (Object p : addressBook) {
-            ContactPerson person = (ContactPerson) p;
-            System.out.println(person);
-        }
+        System.out.println("current AddressBook is: " + currentAddressBookName);
     }
 
     /*
@@ -204,6 +196,70 @@ public class AddressBook {
                 if (person.getState().equalsIgnoreCase(state))
                     System.out.println(person);//we will get contacts whose state is same
             });
+        }
+    }
+
+    //Initialize city and state
+    public void initializeCityAndStateContactList() {
+        for (String key : addressBookList.keySet()) {
+            for (ContactPerson person : addressBookList.get(key)) {
+                String city = person.getCity();
+                if (cityContactList.containsKey(city)) {
+                    cityContactList.get(city).add(person);
+                } else {
+                    ArrayList<ContactPerson> list = new ArrayList<>();
+                    list.add(person);
+                    cityContactList.put(city, list);
+                }
+
+                String state = person.getState();
+                if (stateContactList.containsKey(state)) {
+                    stateContactList.get(state).add(person);
+                } else {
+                    ArrayList<ContactPerson> list = new ArrayList<>();
+                    list.add(person);
+                    stateContactList.put(state, list);
+                }
+            }
+        }
+    }
+
+    //view contacts
+    void viewContacts() {
+        initializeCityAndStateContactList();//calling method
+        System.out.println("*****************************\n1.View by City \n2.View by State");
+        switch (sc.nextInt()) {
+            case 1:
+                viewContactByCity();//calling method
+                break;
+            case 2:
+                viewContactByState();//calling method
+                break;
+            default:
+                viewContacts();//calling method
+                break;
+        }
+    }
+
+    //view contact by city
+    void viewContactByCity() {
+        System.out.println("Enter City:");
+        String city = sc.next();
+        for (String key : cityContactList.keySet()) {//returns a set view of the keys contained in map
+            if (key.equalsIgnoreCase(city)) {
+                cityContactList.get(key).stream().forEach(person -> System.out.println(person));
+            }
+        }
+    }
+
+    //view contact by state
+    void viewContactByState() {
+        System.out.println("Enter State:");
+        String state = sc.next();
+        for (String key : stateContactList.keySet()) {//returns a set view of the keys contained in map
+            if (key.equalsIgnoreCase(state)) {
+                stateContactList.get(state).stream().forEach(person -> System.out.println(person));
+            }
         }
     }
 
