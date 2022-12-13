@@ -64,6 +64,7 @@ public class AddressBook {
         boolean isContactFound = false;
         System.out.println("Enter Name to edit Contact");
         String name = sc.next();
+
         for (ContactPerson contactPerson : currentAddressBook) { //iterate over the arraylist
             if (name.equalsIgnoreCase(contactPerson.getFirstName())) {
                 isContactFound = true;
@@ -144,7 +145,7 @@ public class AddressBook {
         System.out.println(addressBookList.keySet());
         System.out.println("Enter name of address book:");
         String addressBookName = sc.next();
-
+        
         for (String key : addressBookList.keySet()) {
             if (key.equalsIgnoreCase(addressBookName)) {
                 currentAddressBook = addressBookList.get(key);
