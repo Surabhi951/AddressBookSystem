@@ -13,7 +13,7 @@ public class AddressBookMain {
         while (flag1) {
             System.out.println("*************\n"+addressBook.addressBookList.keySet());
             System.out.println("current AddressBook Name: "+addressBook.currentAddressBookName);
-            System.out.println("************\nSelect Option :\n1.Add Contact\n2.Edit Contact\n3.Delete Contact\n4.Display contact\n5.Add New Address Book\n6.Select Address Book\n7.Exit");
+            System.out.println("************\nSelect Option :\n1.Add Contact\n2.Edit Contact\n3.Delete Contact\n4.Display contact\n5.Add New Address Book\n6.Select Address Book\n7.Search contact\n8.Exit");
             int option = sc.nextInt();
             switch (option) { //select option
                 case 1:
@@ -36,6 +36,9 @@ public class AddressBookMain {
                     addressBook.selectAddressBook();
                     break;
                 case 7:
+                    addressBook.searchContact();
+                    break;
+                case 8:
                     flag1 = false;
                     break;
                 default:
