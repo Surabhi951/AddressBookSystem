@@ -2,7 +2,7 @@ package com.bridgelabz;
 
 public class ContactPerson {
 
-    private String firstName, lastName, address, city, state, email;
+    private String firstName,lastName,address,city,state,email;
     private int zipCode;
     private long phoneNumber;
 
@@ -12,34 +12,6 @@ public class ContactPerson {
 
     public String getFirstName() {
         return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public String getState() {
-        return state;
-    }
-    
-    public String getEmail() {
-        return email;
-    }
-
-    public int getZipCode() {
-        return zipCode;
-    }
-
-    public long getPhoneNumber() {
-        return phoneNumber;
     }
 
     public void setFirstName(String firstName) {
@@ -54,14 +26,21 @@ public class ContactPerson {
         this.address = address;
     }
 
+    public String getCity(){
+        return city;
+    }
+
     public void setCity(String city) {
         this.city = city;
     }
 
+    public String getState(){
+        return state;
+    }
     public void setState(String state) {
         this.state = state;
     }
-    
+
     public void setEmail(String email) {
         this.email = email;
     }
@@ -73,17 +52,18 @@ public class ContactPerson {
     public void setPhoneNumber(long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-    
+
+
     @Override
     public String toString() {
-        return "ContactPerson{" +
+        return "Contact{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", address='" + address + '\'' +
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
                 ", email='" + email + '\'' +
-                ", zipCode=" + zipCode +
+                ", zip=" + zipCode +
                 ", phoneNumber=" + phoneNumber +
                 '}';
     }
