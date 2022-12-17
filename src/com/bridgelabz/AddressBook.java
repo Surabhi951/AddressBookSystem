@@ -2,7 +2,9 @@ package com.bridgelabz;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class AddressBook {
 
@@ -307,5 +309,21 @@ public class AddressBook {
         }
     }
 
+    void sortContact() {
+        List<ContactPerson> allContacts = getAllContacts();
+        List<ContactPerson> sortedContacts;
+
+        System.out.println("Sort By Name: ");
+        sortedContacts = allContacts.stream().sorted((x, y) -> x.getFirstName().compareTo(y.getFirstName())).collect(Collectors.toList());
+        sortedContacts.forEach(x -> System.out.println(x));
+    }
+
+    List<ContactPerson> getAllContacts() {
+        List<ContactPerson> allContacts = new ArrayList<>();
+        for (String key : addressBookList.keySet()) {
+            allContacts.addAll(addressBookList.get(key));
+        }
+        return allContacts;
+    }
 }
 
