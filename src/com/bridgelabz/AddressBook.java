@@ -46,6 +46,30 @@ public class AddressBook {
             System.out.println("Contact name already exists");
         } else {
             currentAddressBook.add(person);
+            //add to city contact list
+            String city = person.getCity();
+            ArrayList<ContactPerson> list;
+            if (cityContactList.containsKey(city)) {
+                list = cityContactList.get(city);
+                list.add(person);
+
+            } else {
+                list = new ArrayList<>();
+                list.add(person);
+                cityContactList.put(city, list);
+            }
+
+            //add to State contact list
+            String state= person.getState();
+            if (stateContactList.containsKey(state)) {
+                list = stateContactList.get(state);
+                list.add(person);
+
+            } else {
+                list = new ArrayList<>();
+                list.add(person);
+                stateContactList.put(state, list);
+            }
             System.out.println("contact added to AddressBook " + currentAddressBookName);
             System.out.println(person);
         }
@@ -260,6 +284,26 @@ public class AddressBook {
             if (key.equalsIgnoreCase(state)) {
                 stateContactList.get(state).stream().forEach(person -> System.out.println(person));
             }
+        }
+    }
+
+    void showContactCount() {
+        System.out.println("1.Count of City \n2.Count of State");
+        int option = sc.nextInt();
+        switch (option) {
+            case 1:
+                System.out.println("Enter city :");
+                String city = sc.next();
+                System.out.println("Count: " + cityContactList.get(city).size());
+                break;
+            case 2:
+                System.out.println("Enter State :");
+                String state = sc.next();
+                System.out.println("Count: " + stateContactList.get(state).size());
+                break;
+            default:
+                showContactCount();
+                break;
         }
     }
 
