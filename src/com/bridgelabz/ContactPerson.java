@@ -45,6 +45,10 @@ public class ContactPerson implements Comparable {
         this.email = email;
     }
 
+    public int getZipCode() {
+        return zipCode;
+    }
+
     public void setZipCode(int zipCode) {
         this.zipCode = zipCode;
     }

@@ -16,7 +16,7 @@ public class AddressBook {
     static HashMap<String, ArrayList<ContactPerson>> cityContactList = new HashMap<>();
     static HashMap<String, ArrayList<ContactPerson>> stateContactList = new HashMap<>();
 
-    public ContactPerson createContact(){
+    public ContactPerson createContact() {
         ContactPerson person = new ContactPerson();//creating object of ContactPerson class
         System.out.print("Enter First Name: ");
         person.setFirstName(sc.next());//using object reference calling setFirstName method to set first name
@@ -42,7 +42,7 @@ public class AddressBook {
     if duplicate contact found then display message as contact name already exists
      Add new contacts to address book if there is no duplicate contact
     */
-    void addContact(ContactPerson person){
+    void addContact(ContactPerson person) {
         boolean isDuplicate = checkDuplicateContact(person);
         if (isDuplicate) {
             System.out.println("Contact name already exists");
@@ -126,7 +126,7 @@ public class AddressBook {
      if contact found then delete that contact
       if no contact found then message will be display as oops....contact not found
       */
-    public void deleteContact(){
+    public void deleteContact() {
         boolean isContactFound = false;
         System.out.println("enter name to delete contact");
         String name = sc.next();
@@ -152,7 +152,7 @@ public class AddressBook {
    add multiple address book
    each address book has unique name
     */
-    void addNewAddressBook(){
+    void addNewAddressBook() {
         System.out.println("Enter name for AddressBook: ");
         String addressBookName = sc.next();
         ArrayList <ContactPerson> addressBook = new ArrayList();//creating object of arraylist
@@ -290,6 +290,7 @@ public class AddressBook {
         }
     }
 
+    //Get number of contact persons
     void showContactCount() {
         System.out.println("1.Count of City \n2.Count of State");
         int option = sc.nextInt();
@@ -297,12 +298,12 @@ public class AddressBook {
             case 1:
                 System.out.println("Enter city :");
                 String city = sc.next();
-                System.out.println("Count: " + cityContactList.get(city).size());
+                System.out.println("Count : " + cityContactList.get(city).size());//size of city
                 break;
             case 2:
                 System.out.println("Enter State :");
                 String state = sc.next();
-                System.out.println("Count: " + stateContactList.get(state).size());
+                System.out.println("Count : " + stateContactList.get(state).size());//size of state
                 break;
             default:
                 showContactCount();
@@ -310,21 +311,45 @@ public class AddressBook {
         }
     }
 
+    /*
+    sort contact
+    sort entries in address book alphabetically by person's name, city, state, zipCode
+     */
     void sortContact() {
         List<ContactPerson> allContacts = getAllContacts();
         List<ContactPerson> sortedContacts;
 
-        System.out.println("Sort By Name: ");
-        sortedContacts = allContacts.stream().sorted((x, y) -> x.getFirstName().compareTo(y.getFirstName())).collect(Collectors.toList());
-        sortedContacts.forEach(x -> System.out.println(x));
+        System.out.println("1.Sort By Name \n2.Sort By City \n3.Sort By State \n4.Sort By Zipcode \n5.back");
+        switch (sc.nextInt()) {
+            case 1:
+                sortedContacts = allContacts.stream().sorted((x, y) -> x.getFirstName().compareTo(y.getFirstName())).collect(Collectors.toList());
+                sortedContacts.forEach(x -> System.out.println(x));
+                break;
+            case 2:
+                sortedContacts = allContacts.stream().sorted((x, y) -> x.getCity().compareTo(y.getCity())).collect(Collectors.toList());
+                sortedContacts.forEach(x -> System.out.println(x));
+                break;
+            case 3:
+                sortedContacts = allContacts.stream().sorted((x, y) -> x.getState().compareTo(y.getState())).collect(Collectors.toList());
+                sortedContacts.forEach(x -> System.out.println(x));
+                break;
+            case 4:
+                sortedContacts = allContacts.stream().sorted((x, y) -> Integer.compare(x.getZipCode(), y.getZipCode())).collect(Collectors.toList());
+                sortedContacts.forEach(x -> System.out.println(x));
+                break;
+            case 5:
+                break;
+            default:
+                sortContact();
+                break;
+        }
     }
 
     List<ContactPerson> getAllContacts() {
-        List<ContactPerson> allContacts = new ArrayList<>();
-        for (String key : addressBookList.keySet()) {
+        List<ContactPerson> allContacts = new ArrayList<>();//create object of list
+        for (String key : addressBookList.keySet()) {//iterate loop
             allContacts.addAll(addressBookList.get(key));
         }
         return allContacts;
     }
 }
-
