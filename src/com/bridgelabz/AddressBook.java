@@ -16,7 +16,7 @@ public class AddressBook {
     static HashMap<String, ArrayList<ContactPerson>> cityContactList = new HashMap<>();
     static HashMap<String, ArrayList<ContactPerson>> stateContactList = new HashMap<>();
 
-    public ContactPerson createContact(){
+    public ContactPerson createContact() {
         ContactPerson person = new ContactPerson();//creating object of ContactPerson class
         System.out.print("Enter First Name: ");
         person.setFirstName(sc.next());//using object reference calling setFirstName method to set first name
@@ -42,7 +42,7 @@ public class AddressBook {
     if duplicate contact found then display message as contact name already exists
      Add new contacts to address book if there is no duplicate contact
     */
-    void addContact(ContactPerson person){
+    void addContact(ContactPerson person) {
         boolean isDuplicate = checkDuplicateContact(person);
         if (isDuplicate) {
             System.out.println("Contact name already exists");
@@ -125,7 +125,7 @@ public class AddressBook {
      if contact found then delete that contact
       if no contact found then message will be display as oops....contact not found
       */
-    public void deleteContact(){
+    public void deleteContact() {
         boolean isContactFound = false;
         System.out.println("enter name to delete contact");
         String name = sc.next();
@@ -151,7 +151,7 @@ public class AddressBook {
    add multiple address book
    each address book has unique name
     */
-    void addNewAddressBook(){
+    void addNewAddressBook() {
         System.out.println("Enter name for AddressBook: ");
         String addressBookName = sc.next();
         ArrayList <ContactPerson> addressBook = new ArrayList();//creating object of arraylist
