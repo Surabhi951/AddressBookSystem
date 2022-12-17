@@ -312,15 +312,36 @@ public class AddressBook {
 
     /*
     sort contact
-    sort entries in address book alphabetically by person's name
+    sort entries in address book alphabetically by person's name, city, state, zipCode
      */
     void sortContact() {
-        List<ContactPerson> allContacts = getAllContacts();//call method and stored in allContacts variable
+        List<ContactPerson> allContacts = getAllContacts();
         List<ContactPerson> sortedContacts;
 
-        System.out.println("Sort By Name : ");
-        sortedContacts = allContacts.stream().sorted((x, y) -> x.getFirstName().compareTo(y.getFirstName())).collect(Collectors.toList());//sort by name
-        sortedContacts.forEach(x -> System.out.println(x));
+        System.out.println("1.Sort By Name \n2.Sort By City \n3.Sort By State \n4.Sort By Zipcode \n5.back");
+        switch (sc.nextInt()) {
+            case 1:
+                sortedContacts = allContacts.stream().sorted((x, y) -> x.getFirstName().compareTo(y.getFirstName())).collect(Collectors.toList());
+                sortedContacts.forEach(x -> System.out.println(x));
+                break;
+            case 2:
+                sortedContacts = allContacts.stream().sorted((x, y) -> x.getCity().compareTo(y.getCity())).collect(Collectors.toList());
+                sortedContacts.forEach(x -> System.out.println(x));
+                break;
+            case 3:
+                sortedContacts = allContacts.stream().sorted((x, y) -> x.getState().compareTo(y.getState())).collect(Collectors.toList());
+                sortedContacts.forEach(x -> System.out.println(x));
+                break;
+            case 4:
+                sortedContacts = allContacts.stream().sorted((x, y) -> Integer.compare(x.getZipCode(), y.getZipCode())).collect(Collectors.toList());
+                sortedContacts.forEach(x -> System.out.println(x));
+                break;
+            case 5:
+                break;
+            default:
+                sortContact();
+                break;
+        }
     }
 
     List<ContactPerson> getAllContacts() {
