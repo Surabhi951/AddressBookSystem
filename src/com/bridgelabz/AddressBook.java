@@ -289,6 +289,7 @@ public class AddressBook {
         }
     }
 
+    //Get number of contact persons
     void showContactCount() {
         System.out.println("1.Count of City \n2.Count of State");
         int option = sc.nextInt();
@@ -296,12 +297,12 @@ public class AddressBook {
             case 1:
                 System.out.println("Enter city :");
                 String city = sc.next();
-                System.out.println("Count: " + cityContactList.get(city).size());
+                System.out.println("Count: " + cityContactList.get(city).size());//size of city
                 break;
             case 2:
                 System.out.println("Enter State :");
                 String state = sc.next();
-                System.out.println("Count: " + stateContactList.get(state).size());
+                System.out.println("Count: " + stateContactList.get(state).size());//size of state
                 break;
             default:
                 showContactCount();
@@ -309,18 +310,22 @@ public class AddressBook {
         }
     }
 
+    /*
+    sort contact
+    sort entries in address book alphabetically by person's name
+     */
     void sortContact() {
-        List<ContactPerson> allContacts = getAllContacts();
+        List<ContactPerson> allContacts = getAllContacts();//call method and stored in allContacts variable
         List<ContactPerson> sortedContacts;
 
         System.out.println("Sort By Name: ");
-        sortedContacts = allContacts.stream().sorted((x, y) -> x.getFirstName().compareTo(y.getFirstName())).collect(Collectors.toList());
+        sortedContacts = allContacts.stream().sorted((x, y) -> x.getFirstName().compareTo(y.getFirstName())).collect(Collectors.toList());//sort by name
         sortedContacts.forEach(x -> System.out.println(x));
     }
 
     List<ContactPerson> getAllContacts() {
-        List<ContactPerson> allContacts = new ArrayList<>();
-        for (String key : addressBookList.keySet()) {
+        List<ContactPerson> allContacts = new ArrayList<>();//create object of list
+        for (String key : addressBookList.keySet()) {//iterate loop
             allContacts.addAll(addressBookList.get(key));
         }
         return allContacts;
