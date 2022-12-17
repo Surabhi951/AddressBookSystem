@@ -297,12 +297,12 @@ public class AddressBook {
             case 1:
                 System.out.println("Enter city :");
                 String city = sc.next();
-                System.out.println("Count: " + cityContactList.get(city).size());//size of city
+                System.out.println("Count : " + cityContactList.get(city).size());//size of city
                 break;
             case 2:
                 System.out.println("Enter State :");
                 String state = sc.next();
-                System.out.println("Count: " + stateContactList.get(state).size());//size of state
+                System.out.println("Count : " + stateContactList.get(state).size());//size of state
                 break;
             default:
                 showContactCount();
@@ -318,7 +318,7 @@ public class AddressBook {
         List<ContactPerson> allContacts = getAllContacts();//call method and stored in allContacts variable
         List<ContactPerson> sortedContacts;
 
-        System.out.println("Sort By Name: ");
+        System.out.println("Sort By Name : ");
         sortedContacts = allContacts.stream().sorted((x, y) -> x.getFirstName().compareTo(y.getFirstName())).collect(Collectors.toList());//sort by name
         sortedContacts.forEach(x -> System.out.println(x));
     }
@@ -331,4 +331,3 @@ public class AddressBook {
         return allContacts;
     }
 }
-
