@@ -1,5 +1,6 @@
 package com.bridgelabz;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -350,5 +351,17 @@ public class AddressBook {
             allContacts.addAll(addressBookList.get(key));
         }
         return allContacts;
+    }
+
+    //writeData method
+    void writeData() {
+        FileIOServices fileIOService = new FileIOServices();//creating an object of FileIOServices class
+        fileIOService.writeData();//using object reference calling writeData method
+    }
+
+    //readData method
+    void readData() {
+        FileIOServices fileIOService = new FileIOServices();//creating an object of FileIOServices class
+        fileIOService.readData();//using object reference calling writeData method
     }
 }
