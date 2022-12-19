@@ -1,10 +1,11 @@
 package com.bridgelabz;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class AddressBookMain {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         System.out.println("Welcome to Address Book program");//display welcome message
         AddressBook addressBook = new AddressBook();//creating object of address book
         Scanner sc = new Scanner(System.in);//create an object of scanner class
@@ -13,7 +14,7 @@ public class AddressBookMain {
         while (flag1) {
             System.out.println("*************\n"+addressBook.addressBookList.keySet());
             System.out.println("current AddressBook Name: "+addressBook.currentAddressBookName);
-            System.out.println("************\nSelect Option :\n1.Add Contact\n2.Edit Contact\n3.Delete Contact\n4.View contacts\n5.Add New Address Book\n6.Select Address Book\n7.Search contact\n8.Show contact count\n9.Sort Contact\n10.Exit");
+            System.out.println("************\nSelect Option :\n1.Add Contact\n2.Edit Contact\n3.Delete Contact\n4.View contacts\n5.Add New Address Book\n6.Select Address Book\n7.Search contact\n8.Show contact count\n9.Sort Contact\n10.Write Data\n11.Read Data\n12.Exit");
             int option = sc.nextInt();
             switch (option) { //select option
                 case 1:
@@ -45,6 +46,12 @@ public class AddressBookMain {
                     addressBook.sortContact();
                     break;
                 case 10:
+                    addressBook.writeData();
+                    break;
+                case 11:
+                    addressBook.readData();
+                    break;
+                case 12:
                     flag1 = false;
                     break;
                 default:
