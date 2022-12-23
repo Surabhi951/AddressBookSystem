@@ -1,0 +1,4 @@
+{family=[Contact{firstName='mohita', lastName='shinde', address='nagar', city='pune', state='maharashtra', email='mohita@gmail.com', zip=96385, phoneNumber=7418520963},
+Contact{firstName='aarti', lastName='mahajan', address='kothrud', city='pune', state='maharshtra', email='aarti54@gmail.com', zip=852096, phoneNumber=9638520741}],
+relative=[Contact{firstName='namrata', lastName='jagtap', address='shantiban', city='pune', state='maharashtra', email='namrata@gmail.com', zip=852096, phoneNumber=9638520741},
+Contact{firstName='madhura', lastName='mahadik', address='chinchwad', city='pimpri', state='maharashtra', email='madhura2gmail.com', zip=963850, phoneNumber=7418520963}]}
