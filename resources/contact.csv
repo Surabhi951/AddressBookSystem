@@ -1,1 +1,2 @@
-{professional=[Contact{firstName='manisha', lastName='mahajan', address='nagar', city='nanded', state='maharashtra', email='manu@gmail.com', zip=96385, phoneNumber=8520741963}]}
+{family=[Contact{firstName='apurva', lastName='shinde', address='nagar', city='pun', state='maharashtra', email='apu@gmail.com', zip=96385, phoneNumber=7418520963}],
+relative=[Contact{firstName='saniya', lastName='surat', address='kothrud', city='pune', state='maharashtra', email='sanu@gmail.com', zip=852074, phoneNumber=8520963741}]}
