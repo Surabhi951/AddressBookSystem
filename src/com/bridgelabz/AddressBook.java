@@ -1,6 +1,13 @@
 package com.bridgelabz;
 
+import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvValidationException;
+
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Reader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,6 +23,8 @@ public class AddressBook {
 
     static HashMap<String, ArrayList<ContactPerson>> cityContactList = new HashMap<>();
     static HashMap<String, ArrayList<ContactPerson>> stateContactList = new HashMap<>();
+
+    static final String CSVFile = "C:\\Users\\chetan bhagat\\IdeaProjects\\AddressBookSystem\\resources\\contact.csv";
 
     public ContactPerson createContact() {
         ContactPerson person = new ContactPerson();//creating object of ContactPerson class
@@ -365,4 +374,36 @@ public class AddressBook {
         FileIOServices fileIOService = new FileIOServices();//creating an object of FileIOServices class
         fileIOService.readData();//using object reference calling writeData method
     }
+
+    public void writeCSVFile(){
+        try {
+            FileWriter fileWriterCSV = new FileWriter(CSVFile);
+            fileWriterCSV.write(String.valueOf(AddressBook.addressBookList));
+            fileWriterCSV.close();
+        }catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void CSVFileReader() {
+        try (Reader reader = Files.newBufferedReader(Paths.get(String.valueOf(CSVFile)));
+             CSVReader csvReader = new CSVReader(reader)) {
+            String[] nextRecord;
+            while ((nextRecord = csvReader.readNext()) != null) {
+                System.out.println("First Name: " + nextRecord[0]);
+                System.out.println("Last Name: " + nextRecord[1]);
+                System.out.println("Address: " + nextRecord[2]);
+                System.out.println("City: " + nextRecord[3]);
+                System.out.println("State: " + nextRecord[4]);
+                System.out.println("Pin Code: " + nextRecord[5]);
+                System.out.println("Mobile Number: " + nextRecord[6]);
+                System.out.println("Email Address: " + nextRecord[7]);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (CsvValidationException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

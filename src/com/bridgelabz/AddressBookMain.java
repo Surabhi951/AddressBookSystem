@@ -14,7 +14,7 @@ public class AddressBookMain {
         while (flag1) {
             System.out.println("*************\n"+addressBook.addressBookList.keySet());
             System.out.println("current AddressBook Name: "+addressBook.currentAddressBookName);
-            System.out.println("************\nSelect Option :\n1.Add Contact\n2.Edit Contact\n3.Delete Contact\n4.View contacts\n5.Add New Address Book\n6.Select Address Book\n7.Search contact\n8.Show contact count\n9.Sort Contact\n10.Write Data\n11.Read Data\n12.Exit");
+            System.out.println("************\nSelect Option :\n1.Add Contact\n2.Edit Contact\n3.Delete Contact\n4.View contacts\n5.Add New Address Book\n6.Select Address Book\n7.Search contact\n8.Show contact count\n9.Sort Contact\n10.Write Data\n11.Read Data\n12.Writ CSV file\n13.CSV File Reader\n14.Exit");
             int option = sc.nextInt();
             switch (option) { //select option
                 case 1:
@@ -52,6 +52,12 @@ public class AddressBookMain {
                     addressBook.readData();
                     break;
                 case 12:
+                    addressBook.writeCSVFile();
+                    break;
+                case 13:
+                    addressBook.CSVFileReader();
+                    break;
+                case 14:
                     flag1 = false;
                     break;
                 default:
