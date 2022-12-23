@@ -8,7 +8,7 @@ import java.io.IOException;
 public class FileIOServices {
 
     //Path of the file
-    private static final String FILE_PATH = "C:\\Users\\chetan bhagat\\IdeaProjects\\AddressBookSystem\\src\\com\\bridgelabz\\contact.txt";
+    private static final String FILE_PATH = "C:\\Users\\chetan bhagat\\IdeaProjects\\AddressBookSystem\\resources\\contact.txt";
 
     //Write data method
     public void writeData() {
