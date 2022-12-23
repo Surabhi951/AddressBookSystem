@@ -374,16 +374,18 @@ public class AddressBook {
         fileIOService.readData();//using object reference calling writeData method
     }
 
+    //write csv file
     public void writeCSVFile(){
         try {
-            FileWriter fileWriterCSV = new FileWriter(CSVFile);
+            FileWriter fileWriterCSV = new FileWriter(CSVFile);//creating file writer object and pass file path variable
             fileWriterCSV.write(String.valueOf(AddressBook.addressBookList));
-            fileWriterCSV.close();
+            fileWriterCSV.close();//close file writer
         }catch (IOException e){
             throw new RuntimeException(e);
         }
     }
 
+    //read csv file
     public void CSVFileReader() {
         try (Reader reader = Files.newBufferedReader(Paths.get(String.valueOf(CSVFile)));
              CSVReader csvReader = new CSVReader(reader)) {
@@ -404,5 +406,4 @@ public class AddressBook {
             throw new RuntimeException(e);
         }
     }
-
 }
